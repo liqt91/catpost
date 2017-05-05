@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>{% block title %}{% endblock %} - ^=^</title>
+    <!-- Bootstrap -->
+    <link href="{{ url_for('static', filename='bootstrap3.3.7/css/bootstrap.min.css')}}" rel="stylesheet">
+    {% block link %}{% endblock %}
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .avatar{
+            display: inline-block;
+            overflow: hidden;
+            line-height: 1;
+            vertical-align: middle;
+            border-radius: 3px;
+            margin-top: -1px;}
+        .post_time{
+            font-size: 13px;
+            line-height: 20px;
+            color: #586069;
+        }
+        .postfoot_acitons{
+            list-style: none;
+            display: inline-block;
+        }
+        .panel{
+            border-radius: 0;
+        }
+    </style>
+    <style>
+        #pic_list{padding-top: 10px;}
+    </style>
+{% block head %}
+{% endblock %}
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="nav nav-tabs">
+                    <li {% if nav == "home" %}class="active" {% endif %}>
+                        <a href="#">首页</a>
+                    </li>
+                    <li class="dropdown pull-right">
+                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">Dropdown<strong class="caret"></strong></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">Action</a>
+                            </li>
+                            <li>
+                                <a href="#">Another action</a>
+                            </li>
+                            <li>
+                                <a href="#">Something else here</a>
+                            </li>
+                            <li class="divider">
+                            </li>
+                            <li>
+                                <a href="#">Separated link</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    {% block body %}{% endblock %}
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- [if published]>
+        <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <![endif]-->
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{{ url_for('static', filename='jquery-3.2.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='bootstrap3.3.7/js/bootstrap.js') }}"></script>
+    {% block script %}{% endblock %}
+</body>
+</html>

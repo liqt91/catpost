@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% block title %} index {% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{% block link %}
+    <link href="{{ url_for('static', filename='bootstrap-fileinput/css/fileinput.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="row">
+                            <div id="pic_list" class="col-md-12">
+                                <div>
+
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <span>
+                                            <img class="avatar" alt="username" src="{{ url_for('static',filename='img/avatar.png') }}" height="20px" width="20px">
+                                            <a href="" class="username" rel="contributor">username</a>
+                                        </span>
+                                        <span class="pull-right post_time">time</span>
+                                    </div>
+                                    <div class="panel-body">
+                                        <p>
+                                            家里的猫猫
+                                        </p>
+                                        <img alt="Bootstrap Image Preview" src="{{ url_for('static',filename='img/avatar.png') }}" height="40px" width="40px" />
+                                    </div>
+                                    <div class="panel-footer">
+                                        <div class="postfoot_acitons">
+                                            <div style="display: inline-block">
+                                                <form accept-charset="UTF-8" method="post" action="">
+                                                    <div style="margin:0;padding:0;display:inline">
+                                                        <input name="utf8" type="hidden" value="y">
+                                                        <input name="authenticity_token" type="hidden" value="user_token">
+                                                    </div>
+                                                    <input class="form-control" id="post_id" name="post_id" type="hidden" value="postid">
+                                                    <div class="btn-group unoo">
+                                                        <button class="btn btn-default"><span>miaomiao</span></button>
+                                                        <button class="btn btn-default disabled"><span>123</span></button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="" style="">
+                                            <input id="file-Portrait" type="file" class="file-loading" accept="image/*" multiple>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <h3>
+                            tips
+                        </h3>
+                        <p>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block script %}
+    <script src="{{ url_for('static', filename='bootstrap-fileinput/js/plugins/canvas-to-blob.js') }}"></script>
+    <script src="{{ url_for('static', filename='bootstrap-fileinput/js/plugins/purify.js') }}"></script>
+    <script src="{{ url_for('static', filename='bootstrap-fileinput/js/plugins/sortable.js') }}"></script>
+    <script src="{{ url_for('static', filename='bootstrap-fileinput/js/fileinput.js') }}"></script>
+    <script src="{{ url_for('static', filename='bootstrap-fileinput/js/locales/zh.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+
+{% endblock %}
