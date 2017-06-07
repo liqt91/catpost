@@ -53,7 +53,7 @@
                          <a href="#" data-toggle="dropdown" class="dropdown-toggle">Dropdown<strong class="caret"></strong></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="#">Action</a>
+                                <a href="#" data-toggle="modal" data-target="#registerModal">注册</a>
                             </li>
                             <li>
                                 <a href="#">Another action</a>
@@ -73,6 +73,37 @@
         </div>
     </div>
     {% block body %}{% endblock %}
+
+
+    <!-- registerModal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+    {#                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>#}
+    {#                </button>#}
+                    <h4 class="modal-title" id="registerModalTitle"><label id="registerModalLabel">登录</label>
+                        <a class="btn btn-default popover-test pull-right" id="registerModalButton"
+                           role="button" onclick="RegisterModalToggle()" >没有账号？点击注册</a></h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="authName" class="form-label">邮箱</label>
+                            <input type="text" class="form-control" id="authName">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% block modal %}{% endblock %}
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <!-- [if published]>
         <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
@@ -80,6 +111,23 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="{{ url_for('static', filename='jquery-3.2.1.min.js') }}"></script>
     <script src="{{ url_for('static', filename='bootstrap3.3.7/js/bootstrap.js') }}"></script>
+    <script>
+        function RegisterModalToggle()
+        {
+            var label = $("#registerModalLabel");
+            var button = $("#registerModalButton");
+            if (label.text() === '登录'){
+                label.html('注册');
+                button.text('已有账号？点击登录');
+            }else{
+                label.html('登录');
+                button.text('没有账号？点击注册');
+            }
+
+        }
+    </script>
     {% block script %}{% endblock %}
 </body>
 </html>
+
+
